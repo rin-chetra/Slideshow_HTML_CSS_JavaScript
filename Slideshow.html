@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Slideshows</title>
+<link rel="stylesheet" type="text/css" href="Slideshow.css">
+</head>
+
+<body>
+   <div>
+       <div id="container">
+       <img class="slide" src="img/01.jpg">
+       <img class="slide" src="img/02.jpg">
+       <img class="slide" src="img/03.jpg">
+       <img class="slide" src="img/04.jpg">
+       <img class="slide" src="img/05.jpg">
+       <img class="slide" src="img/06.jpg">
+       <button class="btn" onClick="plusSlidshow(-1)" id="btn1">&#10094;</button>
+       <button class="btn"onClick="plusSlidshow(1)" id="btn2">&#10095;</button>
+   </div> 
+</body>
+       <script> 
+
+             /*var index =0;
+
+             showImage();
+
+             function showImage(){
+             	var x= document.getElementsByClassName("slides");
+             	alert(x.length);
+             }*/
+	       
+	       var Slideshow = 1;
+		   function plusIndx(n){
+			      Slideshow = Slideshow + 1;
+				  showimg(Slideshow);
+			   }
+		   showImage(1);
+		   
+		   function showimg(n){
+			   var i;
+			   var x = document.getElementsByClassName("slide");
+         if(n > x.length){ Slideshow =1};
+				 if(n<=1){ Slideshow = x.length};
+			   for(i=0;i<x.length;i++);
+			     {
+				        x[i].style.display =("none");
+				   }
+				x[Slideshow-1].style.display = "block";   
+		   }
+       autoSlide();
+       function autoSlide();
+         var i;
+         var x = document.getElementsByClassName("slide");
+         for(i=0;i<x.length;i++);
+           {
+                x[i].style.display =("none");
+           }
+        x[Slideshow-1].style.display = "block";
+        Slideshow++;
+        setTimeout(autoSlide,200);
+
+       </script>
+</html>
